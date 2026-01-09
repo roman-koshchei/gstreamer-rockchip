@@ -40,5 +40,5 @@ sudo ldconfig
 
 Run and check if all are present:
 ```bash
-gst-inspect-1.0 rockchipmpp
+rm ~/.cache/gstreamer-1.0/registry.* && gst-inspect-1.0 rockchipmpp
 ```
