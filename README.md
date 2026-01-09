@@ -35,3 +35,10 @@ Reload libraries:
 ```bash
 sudo ldconfig
 ```
+
+## Verify
+
+Run and check if all are present:
+```bash
+gst-inspect-1.0 rockchipmpp
+```
