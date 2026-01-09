@@ -6,7 +6,7 @@ You first need to build and install both [mpp](https://github.com/roman-koshchei
 
 Also you need `meson`:
 ```bash
-sudo apt install meason
+sudo apt install meson
 ```
 
 ## Build and installation
