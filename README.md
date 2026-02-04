@@ -4,9 +4,9 @@
 
 You first need to build and install both [mpp](https://github.com/roman-koshchei/mpp) and [librga](https://github.com/roman-koshchei/librga) to your system.
 
-Also you need `meson`:
+Also you need:
 ```bash
-sudo apt install meson
+sudo apt install meson pkg-config 
 ```
 
 ## Build and installation
