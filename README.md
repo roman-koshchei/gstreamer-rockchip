@@ -6,7 +6,7 @@ You first need to build and install both [mpp](https://github.com/roman-koshchei
 
 Also you need:
 ```bash
-sudo apt install meson pkg-config 
+sudo apt install meson pkg-config libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
 ```
 
 ## Build and installation
