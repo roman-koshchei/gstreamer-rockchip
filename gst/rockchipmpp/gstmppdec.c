@@ -411,15 +411,13 @@ gst_mpp_dec_update_video_info (GstVideoDecoder * decoder, GstVideoFormat format,
   }
 
   if (self->dma_feature) {
-    GstCaps *tmp_caps = gst_caps_copy (output_state->caps);
-    gst_caps_set_features (tmp_caps, 0,
+    /* NOTE: gst_caps_is_subset() on stock GStreamer returns FALSE when the
+     * subset carries the memory:DMABuf feature and the superset does not,
+     * which silently disabled this feature. dma-feature is an explicit
+     * opt-in, so apply it unconditionally; negotiation with downstream
+     * still fails gracefully when it cannot accept DMABuf. */
+    gst_caps_set_features (output_state->caps, 0,
         gst_caps_features_new (GST_CAPS_FEATURE_MEMORY_DMABUF, NULL));
-
-    /* HACK: Expose dmabuf feature when the subset check is hacked */
-    if (gst_caps_is_subset (tmp_caps, output_state->caps))
-      gst_caps_replace (&output_state->caps, tmp_caps);
-
-    gst_caps_unref (tmp_caps);
   }
 
   *info = output_state->info;
